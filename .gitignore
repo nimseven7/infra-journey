@@ -1,0 +1,16 @@
+# IDE/project files
+.idea
+.ropeproject
+
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Terraform files
+.terraform
+*.tfvars.json
+
+# OS files
+.DS_Store
