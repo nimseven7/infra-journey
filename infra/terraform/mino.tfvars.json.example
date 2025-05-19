@@ -1,0 +1,7 @@
+{
+    "gandi_personal_access_token": "your_gandi_personal_access_token",
+    "vianeo_cloudflare_api_token": "your_vianeo_cloudflare_api_token",
+    "domain_provider": "cloudflare or gandi",
+    "domain_name": "your_domain_name",
+    "domain_zone_id": "for cloudflare only. domain_zone_id found in cloudflare dns management"
+}
