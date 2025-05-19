@@ -9,6 +9,11 @@ terraform {
       version = "~> 2.3.0"
       source  = "go-gandi/gandi"
     }
+
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 5.0"
+    }
   }
 }
 
@@ -27,4 +32,8 @@ provider "aws" {
 
 provider "gandi" {
   personal_access_token = var.gandi_personal_access_token
+}
+
+provider "cloudflare" {
+  api_token = var.vianeo_cloudflare_api_token
 }
