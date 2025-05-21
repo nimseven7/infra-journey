@@ -1,6 +1,6 @@
 # my-fastapi
 
-A FastAPI-based example project for building modern, fast (high-performance), web APIs with Python 3.7+ based on standard Python type hints.
+A FastAPI-based example project for building modern, fast (high-performance), web APIs with Python 3.13 based on standard Python type hints.
 
 ## Features
 
@@ -10,10 +10,12 @@ A FastAPI-based example project for building modern, fast (high-performance), we
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.13+
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Terraform](https://www.terraform.io/) (for infrastructure)
 - [uv](https://docs.astral.sh/uv/)
+- [docker](https://www.docker.com/) (optional, for containerization)
+- [docker-compose](https://docs.docker.com/compose/) (optional, for local development)
 
 ## Setup
 

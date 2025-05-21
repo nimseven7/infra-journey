@@ -25,13 +25,11 @@ variable "domain_provider" {
 variable "domain_name" {
   description = "The domain name to use for the application"
   type        = string
-  
+
 }
 
-variable "servername" {
-  description = "The name of the server to create a DNS record for"
-  type        = string
-
+locals {
+  servername = terraform.workspace
 }
 
 variable "domain_zone_id" {

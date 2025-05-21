@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: ./my-fastapi
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - 8000:8000
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /home/api/app
+          ignore:
+            - .venv/
+
+        - action: rebuild
+          path: ./pyproject.toml

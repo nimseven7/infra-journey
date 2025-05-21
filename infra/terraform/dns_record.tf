@@ -13,7 +13,7 @@ data "gandi_domain" "nimseven" {
 resource "gandi_livedns_record" "app_server" {
   count = var.domain_provider == "gandi" ? 1 : 0
   zone  = data.gandi_domain.nimseven[0].id
-  name  = var.servername
+  name  = local.servername
   type  = "CNAME"
   ttl   = 300
 
@@ -25,7 +25,7 @@ resource "gandi_livedns_record" "app_server" {
 resource "gandi_livedns_record" "app_server_superset" {
   count = var.domain_provider == "gandi" ? 1 : 0
   zone  = data.gandi_domain.nimseven[0].id
-  name  = "superset-${var.servername}"
+  name  = "superset-${local.servername}"
   type  = "CNAME"
   ttl   = 300
 
@@ -44,9 +44,9 @@ data "cloudflare_zone" "vianeo_com" {
 resource "cloudflare_dns_record" "app_server" {
   count   = var.domain_provider == "cloudflare" ? 1 : 0
   zone_id = data.cloudflare_zone.vianeo_com[0].zone_id
-  name    = "${var.servername}.${var.domain_name}"
+  name    = "${local.servername}.${var.domain_name}"
   comment = "Terraform managed record"
-  content = "${aws_instance.app_server.public_dns}"
+  content = aws_instance.app_server.public_dns
   type    = "CNAME"
   proxied = false
   ttl     = 300
@@ -57,9 +57,9 @@ resource "cloudflare_dns_record" "app_server" {
 resource "cloudflare_dns_record" "app_server_superset" {
   count   = var.domain_provider == "cloudflare" ? 1 : 0
   zone_id = data.cloudflare_zone.vianeo_com[0].zone_id
-  name    = "superset-${var.servername}.${var.domain_name}"
+  name    = "superset-${local.servername}.${var.domain_name}"
   comment = "Terraform managed record"
-  content = "${aws_instance.app_server.public_dns}"
+  content = aws_instance.app_server.public_dns
   type    = "CNAME"
   proxied = false
   ttl     = 300
